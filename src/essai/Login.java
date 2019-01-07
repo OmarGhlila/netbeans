@@ -161,7 +161,6 @@ public class Login extends javax.swing.JFrame {
                     
                     
                     
-                    
                     if(s1.equalsIgnoreCase("Admin")){
                         dashboard ad = new dashboard(n,e,t);
                         ad.setVisible(true);
