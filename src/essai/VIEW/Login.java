@@ -3,9 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package essai;
+package essai.VIEW;
 
+import essai.Essai;
 import essai.Model.User;
+import essai.VIEW.UserPage;
+import essai.VIEW.dashboard;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -54,9 +57,7 @@ public class Login extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(850, 370));
         setMinimumSize(new java.awt.Dimension(850, 370));
-        setPreferredSize(new java.awt.Dimension(850, 370));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -97,7 +98,6 @@ public class Login extends javax.swing.JFrame {
 
         jButton2.setBackground(new java.awt.Color(255, 204, 204));
         jButton2.setText("Cancel");
-        jButton2.setActionCommand("Cancel");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -147,7 +147,8 @@ public class Login extends javax.swing.JFrame {
         }else {
             try{
                 cnx= Essai.connecterDB();
-                pst = cnx.prepareStatement("select * from user where login = ? and pwd =MD5(?) ");
+                pst = cnx.prepareStatement("select * from user where login = ? and pwd =md5(?) ");
+                
                 pst.setString(1, login);
                 pst.setString(2, password);
                 
@@ -162,11 +163,13 @@ public class Login extends javax.swing.JFrame {
                     
                     
                     if(s1.equalsIgnoreCase("Admin")){
+                        System.out.println("admin");
                         dashboard ad = new dashboard(n,e,t);
                         ad.setVisible(true);
                         setVisible(false);
                     }
                     else if ( s1.equalsIgnoreCase("User")) {
+                        System.out.println("user");
                         UserPage up = new UserPage(n);
                         up.setVisible(true);
                         setVisible(false);
@@ -178,6 +181,7 @@ public class Login extends javax.swing.JFrame {
                     
                 }
                  else{ 
+                    System.out.println("error");
             jLabel4.setText("Login or Password are Wrong ");
         }
         }catch(Exception e){

@@ -43,6 +43,16 @@ public class User {
         this.tel= tel;
         this.type= type;
     }
+    
+    public User(int id, String name, String login, String email, double tel, String type) {
+        this.id = id;
+        this.name = name;
+        this.login = login;
+        this.email = email;
+        this.tel = tel;
+        this.type = type;
+    }
+    
    
     @Override
     public int hashCode() {

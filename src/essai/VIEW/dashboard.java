@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package essai;
+package essai.VIEW;
 
-import essai.Model.User;
+import essai.Model.*;
 import javax.swing.JTextField;
 import java.awt.Color;
 import javax.swing.JPanel;
@@ -13,7 +13,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
-import essai.Login;
+import essai.Essai;
 
 /**
  *
@@ -27,6 +27,8 @@ public class dashboard extends javax.swing.JFrame {
        Connection cnx;
        PreparedStatement pst;
        ResultSet rs;
+       
+       
        
 
     
@@ -51,6 +53,7 @@ public class dashboard extends javax.swing.JFrame {
         jPanel1.setVisible(false);
         jPanel2.setVisible(false);
         jPanel3.setVisible(false);
+        jPanel7.setVisible(false);
         
        
        
@@ -373,12 +376,11 @@ public class dashboard extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton1))))
+                        .addComponent(jButton1)))
+                .addContainerGap())
         );
 
         jPanel2.setBackground(new java.awt.Color(153, 153, 153));
@@ -894,6 +896,7 @@ public class dashboard extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
+        
         String query ="UPDATE  user SET  tel = ? where user_id= ?";
         try{
             cnx= Essai.connecterDB();
@@ -980,6 +983,7 @@ public class dashboard extends javax.swing.JFrame {
 
     private void Name_Edit3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Name_Edit3MousePressed
         // TODO add your handling code here:
+        jPanel7.setVisible(true);
     }//GEN-LAST:event_Name_Edit3MousePressed
 
     private void Name_Edit3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Name_Edit3ActionPerformed
@@ -1000,10 +1004,12 @@ public class dashboard extends javax.swing.JFrame {
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton12MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton12MousePressed
         // TODO add your handling code here:
+        jPanel7.setVisible(false);
     }//GEN-LAST:event_jButton12MousePressed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
